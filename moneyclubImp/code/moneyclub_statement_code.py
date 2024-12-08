@@ -56,9 +56,9 @@ def moneyClubStatement():
         df = pd.DataFrame(data)
 
         # Save to Excel
-        output_path = r'output\Staement_data.csv'
-        df.to_csv(output_path, index=False)
+        # output_path = r'output\Staement_data.csv'
+        # df.to_csv(output_path, index=False)
 
-        print(f"Data extracted and saved to {output_path}")
+        # print(f"Data extracted and saved to {output_path}")
         return df
 

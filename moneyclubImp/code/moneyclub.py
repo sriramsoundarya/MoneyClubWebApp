@@ -55,7 +55,7 @@ df = pd.DataFrame(data)
 print(df)
 
 # Save the table to a CSV file
-df.to_csv(r'output\screenshot.csv', index=False)
+# df.to_csv(r'output\screenshot.csv', index=False)
 
 df1=moneyClubStatement()
 print(df1)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Table</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script>
+        window.onload = function() {
+    const table = document.querySelector('table');
+    const rows = table.querySelectorAll('tr');
+
+    rows.forEach(row => {
+        let hasNaN = false;
+
+        // Check each cell in the row
+        row.querySelectorAll('td').forEach(cell => {
+            if (cell.textContent=='nan') {
+                hasNaN = true;
+            }
+        });
+
+        // If any cell is NaN, color the entire row
+        if (hasNaN) {
+            row.style.backgroundColor = 'red';
+        }
+    });
+};
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Processed Results</h1>
+
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table_data %}
+                    <tr>
+                        {% for col in columns %}
+                            <td>{{ row[col] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="btn">Back to Upload</a>
+    </div>
+</body>
+</html>

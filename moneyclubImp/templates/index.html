@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyClub - Upload Files</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script>
+        function checkFiles() {
+            var screenshot = document.querySelector('input[name="screenshot"]').files.length;
+            var statement = document.querySelector('input[name="statement"]').files.length;
+            var submitButton = document.querySelector('button[type="submit"]');
+
+            // Enable the submit button if both files are selected
+            if (screenshot > 0 && statement > 0) {
+                submitButton.disabled = false; // Enable the submit button
+                submitButton.classList.add("enabled"); // Add green button class
+                submitButton.classList.remove("disabled"); // Remove grey button class
+            } else {
+                submitButton.disabled = true; // Disable the submit button
+                submitButton.classList.add("disabled"); // Add grey button class
+                submitButton.classList.remove("enabled"); // Remove green button class
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>MoneyClub File Processor</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="screenshot">Upload Screenshot (JPG):</label>
+                <input type="file" name="screenshot" accept=".jpg" required onchange="checkFiles()">
+            </div>
+
+            <div class="form-group">
+                <label for="statement">Upload Statement (PDF):</label>
+                <input type="file" name="statement" accept=".pdf" required onchange="checkFiles()">
+            </div>
+
+            <button type="submit" disabled class="disabled">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

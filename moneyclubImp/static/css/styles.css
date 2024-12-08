@@ -1,0 +1,96 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Submit button styles */
+button[type="submit"].disabled {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"].enabled {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Responsiveness with media queries */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 90%; /* Make the form fill most of the screen on smaller devices */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    label, input[type="file"], button[type="submit"] {
+        font-size: 14px; /* Slightly smaller text on small screens */
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 20px; /* Smaller heading font size on very small screens */
+    }
+
+    input[type="file"], button[type="submit"] {
+        font-size: 12px; /* Reduce font size further for smaller screens */
+    }
+}
